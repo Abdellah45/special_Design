@@ -135,7 +135,7 @@ function bulletControl() {
       bullet_box.style.display = localStorage.getItem("bullet") === "on" ? "block" : "none";
     //  if ()
    }else{
-      bullet_box.style.display = "block";
+      bullet_box.style.display = "none";
    }
    
 }
