@@ -1,3 +1,5 @@
+/*@import url('https://pro.fontawesome.com/releases/v5.10.0/');
+*/
 body {
   font-family:'Open Sans', sans-serif;
   min-height:3000px;
@@ -210,30 +212,17 @@ body {
   width:100%;
   text-align:right;
 }
-.header_area .toggle_mainu{
-   background:none;
-   border:0;
-   width:50px;
-   color:#fff;
-   cursor:pointer;
-   margin-top:5px;
-   display:none;
-   position:relative;
-}
-.header_area .toggle_mainu span{
-   display:block;
-   width:100%;
-   height:5px;
-   margin-top:7px;
-   background-color:#fff;
-   border-radius:3px;
-}
+
+
 .header_area .links{
    list-style:none;
    padding:0;
    width:100%;
    text-align:right;
    font-size:15px;
+}
+.header_area .links .toggle{
+   display:none;
 }
 .header_area .links li{
    display:inline-block;
@@ -285,61 +274,114 @@ body {
    }
 }
 @media (max-width:991px) {
-   .header_area .toggle_mainu{
-      position:relative;
-      transition:.3s;
-      display:inline-block;
-   }
-   .header_area .links{
-      display:block;
-      background-color:var(--main-color);
-      padding:20px;
-      width:100%;
-      position:fixed;
-      transform:scale(0);
-      border-radius:50%;
-      opacity:0;
-      overflow:scroll;
-      top:50%;
-      left:50%;
-      height:calc(100vh + 20px);
-      display:block;
-      z-index:3;
-      transition:.2s;
-   }
-   .header_area .links.open{
-      opacity:1;
-      top:-20px;
-      left:0;
-      transform:scale(1);
-      border-radius:0;
-      transition:.3s;
-   }
-   .header_area .links.open .close_btn{
-      display:block;
-      position:absolute;
-      top:20px;
-      right:15px;
-      font-size:45px;
-      color:#ddd;
-      cursor:pointer;
-   }
-   .header_area .links.open li{
-      display:block;
-      text-align:left;
-      padding:20px 0;
-   }
-   .header_area .links.open li:not(:last-of-type) {
-      border-bottom:1px solid #fff;
-   }
-   .header_area .links.open li:first-of-type{
-      margin-top:50px;
-   }
-   .header_area .links.open li a{
-      color:#fff;
-      font-weight:bold;
-      font-size:20px;
-   }
+  .header_area .header_links{
+     position:absolute;
+     width:50px;
+     height:50px;
+     top:0;
+     right:0;
+     background-color:#fff;
+     border-radius:4px;
+     z-index:10;
+     overflow:hidden;
+     transition:width 0.5s, height 0.5s;
+     transition-delay:0s,0.65s;
+}
+.landing_page .container{
+   width:100%;
+}
+.header_area .header_links .toggle {
+   position: relative;
+   width:100%;
+   height:50px;
+   background-color: #ff4081;
+   top:0;
+   right:0;
+   display:flex;
+   justify-content:flex-end;
+   align-items:center;
+   cursor: pointer;
+   transition: .5s;
+}
+.header_area .header_links .toggle.active {
+   background-color: #2196f3;
+}
+.header_area .header_links .toggle.active:before{
+   transform:rotate(0deg);
+   content:"\f060";
+   font-family:"Font Awesome 5 Pro";
+   font-weight:600;
+   font-size:25px;
+}
+.header_area .header_links .toggle.active-two:before {
+   transform: rotate(0deg);
+   content: "×";
+}
+.header_area .header_links.active-height{
+   height:100vh;
+   transition:height 0.5s,width 0.5s;
+}
+.header_area .header_links.active-width{
+   width:60%;
+   transition:width 0.5s;
+}
+.header_area .header_links .toggle:before{
+   content:"\f0c9";
+   position:absolute;
+   transform:rotate(360deg);
+   font-family:"Font Awesome 5 Pro";
+   font-weight:600;
+   width:50px;
+   height:50px;
+   line-height:50px;
+   font-size:35px;
+   color:#fff;
+   text-align:center;
+   transition:.5s;
+}
+.header_area .header_links .links{
+   position:absolute;
+   left:0;
+   margin:0;
+   height:100%;
+   width:100%;
+}
+.header_area .header_links .links li{
+   width:100%;
+   list-style:none;
+   margin:0;
+}
+.header_area .header_links .links li:hover{
+  background-color:#03a9f4;
+}
+.header_area .header_links .links li a{
+   position:relative;
+   width:100%;
+   display:flex;
+   text-decoration:none;
+   color:#154367;
+}
+.header_area .header_links a .icon{
+   position:relative;
+   display:block;
+   min-width:50px;
+   height:50px;
+   text-align:center;
+   line-height:50px;
+}
+.header_area .header_links a .icon i{
+   font-size:25px;
+   color:#154367;
+}
+.header_area .header_links a .title{
+   position:relative;
+   line-height:45px;
+   display:block;
+   height:50px;
+}
+.header_area .header_links .links li:hover a .icon i,
+.header_area .header_links .links li:hover a .title{
+   color: #fff;
 }
 /*End landing page*/
 
